@@ -11,8 +11,8 @@ public class BridgeHandTest {
     @Test
     public void an_ace_has_four_points() {
 
-        Card ace = Card.valueOf("A");
+        Card ace = Card.valueOf(Rank.ACE);
 
-        assertThat(ace.points(), is(equalTo(4)));
+        assertThat(ace.points(), is(equalTo(Points.valueOf(4))));
     }
 }

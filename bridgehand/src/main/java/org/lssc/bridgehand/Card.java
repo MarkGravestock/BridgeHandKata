@@ -1,7 +1,7 @@
 package org.lssc.bridgehand;
 
 public class Card {
-    public static Card valueOf(String rank) {
+    public static Card valueOf(Rank rank) {
         return new Card();
     }
 
