@@ -5,7 +5,7 @@ public class Card {
         return new Card();
     }
 
-    public int points() {
-        return 4;
+    public Points points() {
+        return Points.valueOf(4);
     }
 }
