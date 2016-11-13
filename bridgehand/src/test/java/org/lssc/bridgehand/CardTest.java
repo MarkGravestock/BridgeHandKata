@@ -30,9 +30,16 @@ public class CardTest {
     }
 
     @Test
-    public void a_jack_is_worth_1_points() {
-        Card queen = Card.valueOf(Rank.JACK);
+    public void a_jack_is_worth_1_point() {
+        Card jack = Card.valueOf(Rank.JACK);
 
-        assertThat(queen.points(), is(equalTo(Points.valueOf(1))));
+        assertThat(jack.points(), is(equalTo(Points.valueOf(1))));
+    }
+
+    @Test
+    public void a_number_card_is_worth_0_pointa() {
+        Card number = Card.valueOf(Rank.NUMBER);
+
+        assertThat(number.points(), is(equalTo(Points.valueOf(0))));
     }
 }

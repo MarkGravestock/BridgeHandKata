@@ -1,3 +1,4 @@
 1. Was considering whether i should have implemented hashCode, as I implemnented before using a map to meet conventions (i.e. effective Java)
 2. Not sure if Rank is the domsin term
 3. Get the feeling there might be feature envy between Card and Rank around who knows about points
+4. Considered removing duplication in Card Test. Parameterised tests are ugly in Junit c.f. Nunit?
