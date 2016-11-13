@@ -1,30 +1,23 @@
 package org.lssc.bridgehand;
 
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+
+@RunWith(JUnitParamsRunner.class)
 public class HandTest {
-    @Test
-    public void a_hand_with_one_card_has_correct_points() throws Exception {
-        Hand sut = Hand.from("SQ");
-
-        assertThat(sut.points(), is(equalTo(Points.valueOf(2))));
-    }
 
     @Test
-    public void a_hand_with_two_cards_has_expected_points() throws Exception {
-        Hand sut = Hand.from("SKQ");
+    @Parameters({"SQ, 2", "SKQ, 5", "SAKQ, 9"})
+    public void hand_has_expected_point(String handDefinition, int points) {
+        Hand sut = Hand.from(handDefinition);
 
-        assertThat(sut.points(), is(equalTo(Points.valueOf(5))));
-    }
-
-    @Test
-    public void a_hand_with_three_cards_has_expected_points() throws Exception {
-        Hand sut = Hand.from("SAKQ");
-
-        assertThat(sut.points(), is(equalTo(Points.valueOf(9))));
+        assertThat(sut.points(), is(equalTo(Points.valueOf(points))));
     }
 }
