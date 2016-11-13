@@ -30,4 +30,12 @@ public class PointsTest {
     public void the_to_string_provides_diagnostic_informaation_for_assertions() {
         assertThat(Points.valueOf(2).toString(), is(equalTo("Points[value=2]")));
     }
+
+    @Test
+    public void points_can_be_added() throws Exception {
+        Points actual = Points.valueOf(1).add(Points.valueOf(2));
+
+        assertThat(actual, is(equalTo(Points.valueOf(3))));
+
+    }
 }

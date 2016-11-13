@@ -17,6 +17,10 @@ public class Points {
         return new Points(value);
     }
 
+    public Points add(Points other) {
+        return new Points(this.value + other.value);
+    }
+
     @Override
     public boolean equals(Object obj) {
         return EqualsBuilder.reflectionEquals(this, obj);

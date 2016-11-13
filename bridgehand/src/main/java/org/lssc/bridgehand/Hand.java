@@ -1,7 +1,17 @@
 package org.lssc.bridgehand;
 
+import java.util.HashMap;
+
 public class Hand {
     private final String handDefinition;
+
+    HashMap<Character, Rank> charToRank = new HashMap<Character, Rank>() {
+        {
+            put('A', Rank.ACE);
+            put('K', Rank.KING);
+            put('Q', Rank.QUEEN);
+        }
+    };
 
     public Hand(String handDefinition) {
 
@@ -13,14 +23,13 @@ public class Hand {
     }
 
     public Points points() {
-        if (handDefinition.equals("SQ")) {
-            return Points.valueOf(2);
-        }
 
-        if (handDefinition.equals("SKQ")) {
-            return Points.valueOf(3);
-        }
+        return handDefinition.chars()
+                .mapToObj(i -> (char) i)
+                .skip(1)
+                .map(c -> Card.valueOf(charToRank.get(c)))
+                .map(card -> card.points())
+                .reduce(Points.valueOf(0), (total, points) -> total.add(points));
 
-        return Points.valueOf(6);
     }
 }
