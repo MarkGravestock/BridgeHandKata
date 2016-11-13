@@ -8,6 +8,7 @@ public class Card {
         {
             put(Rank.ACE, Points.valueOf(4));
             put(Rank.KING, Points.valueOf(3));
+            put(Rank.QUEEN, Points.valueOf(2));
         }
     };
 
@@ -22,7 +23,6 @@ public class Card {
     }
 
     public Points points() {
-
-        return rankToPoints.getOrDefault(rank, Points.valueOf(2));
+        return rankToPoints.getOrDefault(rank, Points.valueOf(1));
     }
 }

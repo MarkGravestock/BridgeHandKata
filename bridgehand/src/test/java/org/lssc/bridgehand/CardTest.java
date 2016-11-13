@@ -28,4 +28,11 @@ public class CardTest {
 
         assertThat(queen.points(), is(equalTo(Points.valueOf(2))));
     }
+
+    @Test
+    public void a_jack_is_worth_1_points() {
+        Card queen = Card.valueOf(Rank.JACK);
+
+        assertThat(queen.points(), is(equalTo(Points.valueOf(1))));
+    }
 }
