@@ -1,17 +1,10 @@
 package org.lssc.bridgehand;
 
-import java.util.HashMap;
+import java.util.stream.Stream;
 
 public class Hand {
+    private final HandDefinitionParser handDefinitionParser = new HandDefinitionParser();
     private final String handDefinition;
-
-    HashMap<Character, Rank> charToRank = new HashMap<Character, Rank>() {
-        {
-            put('A', Rank.ACE);
-            put('K', Rank.KING);
-            put('Q', Rank.QUEEN);
-        }
-    };
 
     public Hand(String handDefinition) {
 
@@ -24,12 +17,16 @@ public class Hand {
 
     public Points points() {
 
-        return handDefinition.chars()
-                .mapToObj(i -> (char) i)
-                .skip(1)
-                .map(c -> Card.valueOf(charToRank.get(c)))
+        Stream<Card> cardStream = handDefinitionParser.parseCardsFromDefinition(handDefinition);
+
+        Points handPoints = calculateTotalPointsFrom(cardStream);
+
+        return handPoints;
+    }
+
+    private Points calculateTotalPointsFrom(Stream<Card> cardStream) {
+        return cardStream
                 .map(card -> card.points())
                 .reduce(Points.valueOf(0), (total, points) -> total.add(points));
-
     }
 }

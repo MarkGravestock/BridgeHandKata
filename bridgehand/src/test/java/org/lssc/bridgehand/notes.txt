@@ -7,3 +7,5 @@
 TODO Tests
 
 Invalid Hand: SAA - duplicate card of same suite
+Invalid Suit: YA
+Invalid Rank:
