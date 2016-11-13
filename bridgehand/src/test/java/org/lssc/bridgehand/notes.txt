@@ -2,7 +2,7 @@
 2. Not sure if Rank is the domsin term
 3. Get the feeling there might be feature envy between Card and Rank around who knows about points
 4. Junit Params better than Junit4 - lacks strong typing.
-
+5. Not sure that HandDefinitionExpression is justified
 
 TODO Tests
 

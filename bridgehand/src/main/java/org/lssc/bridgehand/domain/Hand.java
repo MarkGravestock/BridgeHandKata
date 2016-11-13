@@ -1,21 +1,19 @@
 package org.lssc.bridgehand.domain;
 
-import org.lssc.bridgehand.input.StringHandDefinitionParser;
-
 import java.util.Iterator;
-import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 public class Hand {
-    private final HandDefinitionParser handDefinitionParser = new StringHandDefinitionParser();
+    private final HandDefinitionParser handDefinitionParser;
     private final String handDefinition;
 
-    private Hand(String handDefinition) {
+    private Hand(String handDefinition, HandDefinitionParser handDefinitionParser) {
         this.handDefinition = handDefinition;
+        this.handDefinitionParser = handDefinitionParser;
     }
 
-    public static Hand from(String handDefinition) {
-        return new Hand(handDefinition);
+    public static HandDefinitionParserExpression from(String handDefinition) {
+        return new HandDefinitionParserExpression(handDefinition);
     }
 
     public Points points() {
@@ -28,5 +26,18 @@ public class Hand {
         return StreamSupport.stream(((Iterable<Card>) () -> cards).spliterator(), false)
                 .map(Card::points)
                 .reduce(Points.valueOf(0), Points::add);
+    }
+
+    public static class HandDefinitionParserExpression {
+
+        private final String handDefinition;
+
+        public HandDefinitionParserExpression(String handDefinition) {
+            this.handDefinition = handDefinition;
+        }
+
+        public Hand using(HandDefinitionParser handDefinitionParser) {
+            return new Hand(handDefinition, handDefinitionParser);
+        }
     }
 }
