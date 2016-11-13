@@ -1,10 +1,10 @@
-package org.lssc.bridgehand;
+package org.lssc.bridgehand.domain;
 
 import java.util.HashMap;
 
 public class Card {
 
-    HashMap<Rank, Points> rankToPoints = new HashMap<Rank, Points>() {
+    private final HashMap<Rank, Points> rankToPoints = new HashMap<Rank, Points>() {
         {
             put(Rank.ACE, Points.valueOf(4));
             put(Rank.KING, Points.valueOf(3));
@@ -15,7 +15,7 @@ public class Card {
 
     private final Rank rank;
 
-    public Card(Rank rank) {
+    private Card(Rank rank) {
         this.rank = rank;
     }
 

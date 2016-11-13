@@ -1,6 +1,7 @@
-package org.lssc.bridgehand;
+package org.lssc.bridgehand.domain;
 
 import org.junit.Test;
+import org.lssc.bridgehand.domain.Points;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;

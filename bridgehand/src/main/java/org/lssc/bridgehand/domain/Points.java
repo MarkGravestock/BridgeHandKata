@@ -1,4 +1,4 @@
-package org.lssc.bridgehand;
+package org.lssc.bridgehand.domain;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -8,8 +8,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class Points {
     private final int value;
 
-    public Points(int value) {
-
+    private Points(int value) {
         this.value = value;
     }
 
@@ -22,8 +21,8 @@ public class Points {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return EqualsBuilder.reflectionEquals(this, obj);
+    public boolean equals(Object other) {
+        return EqualsBuilder.reflectionEquals(this, other);
     }
 
     @Override

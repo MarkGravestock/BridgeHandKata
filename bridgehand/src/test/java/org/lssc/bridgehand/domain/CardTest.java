@@ -1,9 +1,12 @@
-package org.lssc.bridgehand;
+package org.lssc.bridgehand.domain;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.lssc.bridgehand.domain.Card;
+import org.lssc.bridgehand.domain.Points;
+import org.lssc.bridgehand.domain.Rank;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
