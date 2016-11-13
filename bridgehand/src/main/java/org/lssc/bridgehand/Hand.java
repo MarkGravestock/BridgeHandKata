@@ -17,6 +17,10 @@ public class Hand {
             return Points.valueOf(2);
         }
 
+        if (handDefinition.equals("SKQ")) {
+            return Points.valueOf(3);
+        }
+
         return Points.valueOf(3);
     }
 }
