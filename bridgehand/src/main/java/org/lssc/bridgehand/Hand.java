@@ -21,6 +21,6 @@ public class Hand {
             return Points.valueOf(3);
         }
 
-        return Points.valueOf(3);
+        return Points.valueOf(6);
     }
 }
