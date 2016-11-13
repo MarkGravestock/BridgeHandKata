@@ -1,45 +1,22 @@
 package org.lssc.bridgehand;
 
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+@RunWith(JUnitParamsRunner.class)
 public class CardTest {
 
     @Test
-    public void an_ace_is_worth_4_points() {
-        Card ace = Card.valueOf(Rank.ACE);
+    @Parameters({"ACE, 4", "KING, 3", "QUEEN, 2", "JACK, 1" , "NUMBER, 0"})
+    public void card_has_expected_points_for_rank(Rank rank, int points) {
+        Card ace = Card.valueOf(rank);
 
-        assertThat(ace.points(), is(equalTo(Points.valueOf(4))));
-    }
-
-    @Test
-    public void a_king_is_worth_3_points() {
-        Card king = Card.valueOf(Rank.KING);
-
-        assertThat(king.points(), is(equalTo(Points.valueOf(3))));
-    }
-
-    @Test
-    public void a_queen_is_worth_2_points() {
-        Card queen = Card.valueOf(Rank.QUEEN);
-
-        assertThat(queen.points(), is(equalTo(Points.valueOf(2))));
-    }
-
-    @Test
-    public void a_jack_is_worth_1_point() {
-        Card jack = Card.valueOf(Rank.JACK);
-
-        assertThat(jack.points(), is(equalTo(Points.valueOf(1))));
-    }
-
-    @Test
-    public void a_number_card_is_worth_0_pointa() {
-        Card number = Card.valueOf(Rank.NUMBER);
-
-        assertThat(number.points(), is(equalTo(Points.valueOf(0))));
+        assertThat(ace.points(), is(equalTo(Points.valueOf(points))));
     }
 }
