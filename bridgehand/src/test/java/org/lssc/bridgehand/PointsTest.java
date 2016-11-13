@@ -20,4 +20,14 @@ public class PointsTest {
     public void both_classes_must_be_points_to_be_equal() throws Exception {
         assertThat("hello", is(not(equalTo(Points.valueOf(3)))));
     }
+
+    @Test
+    public void two_points_with_same_values_have_the_same_hash_code() {
+        assertThat(Points.valueOf(3).hashCode(), is(equalTo(Points.valueOf(3).hashCode())));
+    }
+
+    @Test
+    public void the_to_string_provides_diagnostic_informaation_for_assertions() {
+        assertThat(Points.valueOf(2).toString(), is(equalTo("Points[value=2]")));
+    }
 }

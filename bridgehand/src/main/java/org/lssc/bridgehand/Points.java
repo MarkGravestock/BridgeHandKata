@@ -1,21 +1,34 @@
 package org.lssc.bridgehand;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class Points {
-    private final int points;
+    private final int value;
 
-    public Points(int points) {
+    public Points(int value) {
 
-        this.points = points;
+        this.value = value;
     }
 
-    public static Points valueOf(int points) {
-        return new Points(points);
+    public static Points valueOf(int value) {
+        return new Points(value);
     }
 
     @Override
     public boolean equals(Object obj) {
         return EqualsBuilder.reflectionEquals(this, obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return HashCodeBuilder.reflectionHashCode(this, false);
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

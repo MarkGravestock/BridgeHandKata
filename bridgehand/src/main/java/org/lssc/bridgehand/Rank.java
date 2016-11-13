@@ -1,5 +1,5 @@
 package org.lssc.bridgehand;
 
 public enum Rank {
-    ACE
+    KING, QUEEN, ACE
 }

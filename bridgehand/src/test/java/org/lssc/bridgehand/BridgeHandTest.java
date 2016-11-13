@@ -15,4 +15,18 @@ public class BridgeHandTest {
 
         assertThat(ace.points(), is(equalTo(Points.valueOf(4))));
     }
+
+    @Test
+    public void a_king_is_worth_3_points() {
+        Card king = Card.valueOf(Rank.KING);
+
+        assertThat(king.points(), is(equalTo(Points.valueOf(3))));
+    }
+
+    @Test
+    public void a_queen_is_worth_2_points() {
+        Card queen = Card.valueOf(Rank.QUEEN);
+
+        assertThat(queen.points(), is(equalTo(Points.valueOf(2))));
+    }
 }
