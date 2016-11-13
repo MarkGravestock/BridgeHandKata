@@ -6,11 +6,10 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class BridgeHandTest {
+public class CardTest {
 
     @Test
-    public void an_ace_has_four_points() {
-
+    public void an_ace_is_worth_4_points() {
         Card ace = Card.valueOf(Rank.ACE);
 
         assertThat(ace.points(), is(equalTo(Points.valueOf(4))));

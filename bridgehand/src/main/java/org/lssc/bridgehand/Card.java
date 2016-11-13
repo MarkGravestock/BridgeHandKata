@@ -1,6 +1,16 @@
 package org.lssc.bridgehand;
 
+import java.util.HashMap;
+
 public class Card {
+
+    HashMap<Rank, Points> rankToPoints = new HashMap<Rank, Points>() {
+        {
+            put(Rank.ACE, Points.valueOf(4));
+            put(Rank.KING, Points.valueOf(3));
+        }
+    };
+
     private final Rank rank;
 
     public Card(Rank rank) {
@@ -12,14 +22,7 @@ public class Card {
     }
 
     public Points points() {
-        if (rank.equals(Rank.ACE)){
-            return Points.valueOf(4);
-        }
 
-        if (rank.equals(Rank.KING)){
-            return Points.valueOf(3);
-        }
-
-        return Points.valueOf(2);
+        return rankToPoints.getOrDefault(rank, Points.valueOf(2));
     }
 }
