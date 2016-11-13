@@ -13,4 +13,11 @@ public class HandTest {
 
         assertThat(sut.points(), is(equalTo(Points.valueOf(2))));
     }
+
+    @Test
+    public void a_hand_with_two_cards_has_expected_points() throws Exception {
+        Hand sut = Hand.from("SKQ");
+
+        assertThat(sut.points(), is(equalTo(Points.valueOf(3))));
+    }
 }
