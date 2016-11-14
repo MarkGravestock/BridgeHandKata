@@ -8,20 +8,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 public class StringHandDefinitionParser implements HandDefinitionParser {
-    private final HashMap<Character, Rank> charToRank = new HashMap<Character, Rank>() {
-        {
-            put('A', Rank.ACE);
-            put('K', Rank.KING);
-            put('Q', Rank.QUEEN);
-            put('J', Rank.JACK);
-        }
-    };
+
+    private final CharacterToRank characterToRank = new CharacterToRank();
 
     @Override
     public Iterator<Card> parseCardsFrom(String handDefinition) {
         return handDefinition.chars()
                     .mapToObj(characterNumber -> (char) characterNumber)
-                    .map(character -> Card.valueOf(charToRank.get(character)))
+                    .map(character -> Card.valueOf(characterToRank.rankFor(character)))
                     .iterator();
     }
 }
